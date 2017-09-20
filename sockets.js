@@ -4,7 +4,6 @@ var socketIO = require('socket.io'),
 
 module.exports = function (server, config) {
     var io = socketIO.listen(server);
-    io.set('origins', '*:*');
 
     io.sockets.on('connection', function (client) {
         client.resources = {
