@@ -15,7 +15,7 @@ Read more:
 
 Running the server requires a valid installation of node.js which can be installed from the nodejs.org website. After installing the package you will need to install the node dependencies.
 
-1) npm install async, node-uuid, redis, underscore, precommit-hook, getconfig, yetify, socket.io
+1) npm install
 
 2) run the server using "node server.js"
 
@@ -23,15 +23,15 @@ Running the server requires a valid installation of node.js which can be install
 
                         "signal master is running at: http://localhost:8888"
 
-4) Open a web browser to the specified URL and port to ensure that the server is running properly. You should see the message
+4) Open a web browser to the specified URL and port to ensure that the server is running properly. You should see the message when you go to the /socket.io/ subfolder (e.g. http://localhost:8888/socket.io/), you should see a message like this:
 
-                        "Welcome to socket.io"
+						{"code":0,"message":"Transport unknown"}
 
 ### Production Environment
 * generate your ssl certs
 
 ```shell
-$ ./scripts/generare-ssl-certs.sh
+$ ./scripts/generate-ssl-certs.sh
 ```
 * run in Production mode
 
