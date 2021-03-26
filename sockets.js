@@ -108,14 +108,25 @@ module.exports = function (server, config) {
         // allow selectively vending turn credentials based on origin.
         var origin = client.handshake.headers.origin;
         if ((!config.turnorigins || config.turnorigins.indexOf(origin) !== -1) && config.turnservers !== undefined) {
+            // config.turnservers.forEach(function (server) {
+            //     var hmac = crypto.createHmac('sha1', server.secret);
+            //     // default to 86400 seconds timeout unless specified
+            //     var username = Math.floor(new Date().getTime() / 1000) + (parseInt(server.expiry || 86400, 10)) + "";
+            //     hmac.update(username);
+            //     credentials.push({
+            //         username: username,
+            //         credential: hmac.digest('base64'),
+            //         urls: server.urls || server.url
+            //     });
+            // });
             config.turnservers.forEach(function (server) {
-                var hmac = crypto.createHmac('sha1', server.secret);
-                // default to 86400 seconds timeout unless specified
-                var username = Math.floor(new Date().getTime() / 1000) + (parseInt(server.expiry || 86400, 10)) + "";
-                hmac.update(username);
+                // var hmac = crypto.createHmac('sha1', server.secret);
+                // // default to 86400 seconds timeout unless specified
+                // var username = Math.floor(new Date().getTime() / 1000) + (parseInt(server.expiry || 86400, 10)) + "";
+                // hmac.update(username);
                 credentials.push({
-                    username: username,
-                    credential: hmac.digest('base64'),
+                    username: server.username,
+                    credential: server.credential,
                     urls: server.urls || server.url
                 });
             });
