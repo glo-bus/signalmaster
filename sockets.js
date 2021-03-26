@@ -6,6 +6,7 @@ module.exports = function (server, config) {
     var io = socketIO.listen(server);
 
     io.sockets.on('connection', function (client) {
+        console.log('CLIENT -> ', client);
         client.resources = {
             screen: false,
             video: true,
@@ -120,10 +121,6 @@ module.exports = function (server, config) {
             //     });
             // });
             config.turnservers.forEach(function (server) {
-                // var hmac = crypto.createHmac('sha1', server.secret);
-                // // default to 86400 seconds timeout unless specified
-                // var username = Math.floor(new Date().getTime() / 1000) + (parseInt(server.expiry || 86400, 10)) + "";
-                // hmac.update(username);
                 credentials.push({
                     username: server.username,
                     credential: server.credential,
