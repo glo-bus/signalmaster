@@ -6,7 +6,7 @@ module.exports = function (server, config) {
     var io = socketIO.listen(server);
 
     io.sockets.on('connection', function (client) {
-        console.log('CLIENT -> ', client);
+        // console.log('CLIENT -> ', client);
         client.resources = {
             screen: false,
             video: true,
@@ -101,7 +101,7 @@ module.exports = function (server, config) {
 
 
         // tell client about stun and turn servers and generate nonces
-        client.emit('stunservers', config.stunservers || []);
+        // client.emit('stunservers', config.stunservers || []);
 
         // create shared secret nonces for TURN authentication
         // the process is described in draft-uberti-behave-turn-rest
@@ -128,7 +128,7 @@ module.exports = function (server, config) {
                 });
             });
         }
-        client.emit('turnservers', credentials);
+        // client.emit('turnservers', credentials);
     });
 
 
