@@ -4,7 +4,7 @@ var socketIO = require('socket.io'),
 
 module.exports = function (server, config) {
     var io = socketIO.listen(server);
-    console.log('CONFIG -> ', config);
+    // console.log('CONFIG -> ', config);
     io.sockets.on('connection', function (client) {
         // console.log('CLIENT -> ', client);
         client.resources = {
