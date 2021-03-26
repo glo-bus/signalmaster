@@ -107,7 +107,7 @@ module.exports = function (server, config) {
         var credentials = [];
         // allow selectively vending turn credentials based on origin.
         var origin = client.handshake.headers.origin;
-        if (!config.turnorigins || config.turnorigins.indexOf(origin) !== -1) {
+        if ((!config.turnorigins || config.turnorigins.indexOf(origin) !== -1) && config.turnservers.length > 0) {
             config.turnservers.forEach(function (server) {
                 var hmac = crypto.createHmac('sha1', server.secret);
                 // default to 86400 seconds timeout unless specified
