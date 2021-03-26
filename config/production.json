@@ -19,7 +19,7 @@
     {
       "credential": "MJBdYC0BJr/CSniOuv2ONz9f2vVWc8hzlmqtzJcxi/M=",
       "url": "turn:global.turn.twilio.com:3478?transport=udp",
-      "urls": "turn:global.turn.twilio.com:3478?transport=udp",
+      "urls": ["turn:global.turn.twilio.com:3478?transport=udp"],
       "username": "87630588c8584d95d4b0cc7778ffb01740028301274a31f31baf30b8518c782f",
       "expiry": 86400
     }
